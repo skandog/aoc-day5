@@ -14,5 +14,13 @@ let instructions = puzzleInput.split('\n\n')[1].split('\n')
 
 let digitInstructions = [];
 
+for (let i = 0; i < instructions.length; i++) {   
+    let numberToMove = Number(instructions[i].charAt(5))
+    let location = Number(instructions[i].charAt(12))
+    let target = Number(instructions[i].charAt(17))
+    
+    digitInstructions[i] = [numberToMove, location, target]
+}
 
-console.log(instructions);
+
+console.log(digitInstructions);
