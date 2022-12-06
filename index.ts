@@ -67,5 +67,14 @@ for (let i = 0; i < digitInstructions.length; i++) {
   }
 }
 
+function getLastItem(arr) {
+  let final: string = "";
+  arr.forEach((a) => {
+    final += a[a.length - 1];
+  });
+  return final;
+}
+
 console.log(digitInstructions);
 console.log(colsArrays);
+console.log(getLastItem(colsArrays));

@@ -44,5 +44,13 @@ for (var i = 0; i < digitInstructions.length; i++) {
         colsArrays[from].pop();
     }
 }
+function getLastItem(arr) {
+    var final = "";
+    arr.forEach(function (a) {
+        final += a[a.length - 1];
+    });
+    return final;
+}
 console.log(digitInstructions);
 console.log(colsArrays);
+console.log(getLastItem(colsArrays));
