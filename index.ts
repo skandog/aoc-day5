@@ -13,7 +13,6 @@ let colsArrays = new Array(cols.length - 1);
 for (let i = 0; i < cols.length - 1; i++) {
   colsArrays[i] = [];
 }
-console.log(colsArrays);
 
 let instructions = puzzleInput.split("\n\n")[1].split("\n");
 let digitInstructions = [];
@@ -46,6 +45,7 @@ let numberOfColumns = Number(
 //   }
 // }
 
+// sorts columns into arrays
 for (let i = 0; i < cols.length - 1; i++) {
   for (let j = 0; j < numberOfColumns; j++) {
     let func = 4 * j + 1;
@@ -56,10 +56,16 @@ for (let i = 0; i < cols.length - 1; i++) {
   }
 }
 
-// for (let i = 0; i < numberOfColumns; i++) {
-//   // Got to work out how to maintain the column structure
-//   // but parse into separate arrays.
-//   colsArrays[i] = [];
-// }
+for (let i = 0; i < digitInstructions.length; i++) {
+  let numberToMove = digitInstructions[i][0];
+  let from = digitInstructions[i][1] - 1;
+  let target = digitInstructions[i][2] - 1;
 
+  for (let j = 0; j < numberToMove; j++) {
+    colsArrays[target].push(colsArrays[from][colsArrays[from].length - 1]);
+    colsArrays[from].pop();
+  }
+}
+
+console.log(digitInstructions);
 console.log(colsArrays);
